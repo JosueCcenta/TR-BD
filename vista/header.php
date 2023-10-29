@@ -62,8 +62,8 @@
                 <a class="navbar-link">Categorías</a>
 
                 <div class="navbar-dropdown">
-                    <a href="index.php?vista=category_new" class="navbar-item">Nueva</a>
-                    <a href="index.php?vista=category_list" class="navbar-item">Lista</a>
+                    <a href="category_new.php" class="navbar-item">Nueva</a>
+                    <a href="category_list.php" class="navbar-item">Lista</a>
                     <a href="index.php?vista=category_search" class="navbar-item">Buscar</a>
                 </div>
             </div>
