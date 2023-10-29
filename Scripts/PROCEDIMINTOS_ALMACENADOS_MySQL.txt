@@ -1,0 +1,382 @@
+use northwind;
+describe employees;
+-- TABLA EMPLOYEES
+-- Crear
+DELIMITER //
+CREATE PROCEDURE sp_CrearEmployee(
+    IN p_LastName NVARCHAR(20),
+    IN p_FirstName NVARCHAR(10),
+    IN p_Title NVARCHAR(30),
+    IN p_TitleOfCourtesy NVARCHAR(25),
+    IN p_BirthDate DATETIME,
+    IN p_HireDate DATETIME,
+    IN p_Address NVARCHAR(60),
+    IN p_City NVARCHAR(15),
+    IN p_Region NVARCHAR(15),
+    IN p_PostalCode NVARCHAR(10),
+    IN p_Country NVARCHAR(15),
+    IN p_HomePhone NVARCHAR(24),
+    IN p_Extension NVARCHAR(4),
+    IN p_Photo LONGBLOB,
+    IN p_Notes TEXT,
+    IN p_ReportsTo INT,
+    IN p_PhotoPath NVARCHAR(255)
+)
+BEGIN
+    INSERT INTO Employees 
+    (LastName, FirstName, Title, TitleOfCourtesy, BirthDate, HireDate, Address, City, Region, PostalCode, Country, HomePhone, Extension, Photo, Notes, ReportsTo, PhotoPath)
+    VALUES 
+    (p_LastName, p_FirstName, p_Title, p_TitleOfCourtesy, p_BirthDate, p_HireDate, p_Address, p_City, p_Region, p_PostalCode, p_Country, p_HomePhone, p_Extension, p_Photo, p_Notes, p_ReportsTo, p_PhotoPath);
+END//
+DELIMITER ;
+call sp_CrearEmployee ('Lopez','Freddy',null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+-- Leer
+DELIMITER //
+CREATE PROCEDURE sp_LeerEmployee()
+BEGIN
+    SELECT * FROM Employees;
+END//
+DELIMITER ;
+
+-- Actualizar
+DELIMITER //
+CREATE PROCEDURE sp_ActualizarEmployee(
+    IN p_EmployeeID INT,
+    IN p_LastName NVARCHAR(20),
+    IN p_FirstName NVARCHAR(10),
+    IN p_Title NVARCHAR(30),
+    IN p_TitleOfCourtesy NVARCHAR(25),
+    IN p_BirthDate DATETIME,
+    IN p_HireDate DATETIME,
+    IN p_Address NVARCHAR(60),
+    IN p_City NVARCHAR(15),
+    IN p_Region NVARCHAR(15),
+    IN p_PostalCode NVARCHAR(10),
+    IN p_Country NVARCHAR(15),
+    IN p_HomePhone NVARCHAR(24),
+    IN p_Extension NVARCHAR(4),
+    IN p_Photo LONGBLOB,
+    IN p_Notes TEXT,
+    IN p_ReportsTo INT,
+    IN p_PhotoPath NVARCHAR(255)
+)
+BEGIN
+    UPDATE Employees
+    SET 
+        LastName = p_LastName,
+        FirstName = p_FirstName,
+        Title = p_Title,
+        TitleOfCourtesy = p_TitleOfCourtesy,
+        BirthDate = p_BirthDate,
+        HireDate = p_HireDate,
+        Address = p_Address,
+        City = p_City,
+        Region = p_Region,
+        PostalCode = p_PostalCode,
+        Country = p_Country,
+        HomePhone = p_HomePhone,
+        Extension = p_Extension,
+        Photo = p_Photo,
+        Notes = p_Notes,
+        ReportsTo = p_ReportsTo,
+        PhotoPath = p_PhotoPath
+    WHERE EmployeeID = p_EmployeeID;
+END//
+DELIMITER ;
+
+-- Eliminar
+DELIMITER //
+CREATE PROCEDURE sp_EliminarEmployee(
+    IN p_EmployeeID INT
+)
+BEGIN
+    DELETE FROM Employees WHERE EmployeeID = p_EmployeeID;
+END//
+DELIMITER ;
+
+
+-- TABLA CUSTOMERS
+
+-- Crear
+DELIMITER //
+CREATE PROCEDURE sp_CrearCustomer(
+    IN p_CustomerID CHAR(5),
+    IN p_CompanyName NVARCHAR(40),
+    IN p_ContactName NVARCHAR(30),
+    IN p_ContactTitle NVARCHAR(30),
+    IN p_Address NVARCHAR(60),
+    IN p_City NVARCHAR(15),
+    IN p_Region NVARCHAR(15),
+    IN p_PostalCode NVARCHAR(10),
+    IN p_Country NVARCHAR(15),
+    IN p_Phone NVARCHAR(24),
+    IN p_Fax NVARCHAR(24)
+)
+BEGIN
+    INSERT INTO Customers 
+    (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, Phone, Fax)
+    VALUES 
+    (p_CustomerID, p_CompanyName, p_ContactName, p_ContactTitle, p_Address, p_City, p_Region, p_PostalCode, p_Country, p_Phone, p_Fax);
+END//
+DELIMITER ;
+
+-- Leer
+DELIMITER //
+CREATE PROCEDURE sp_LeerCustomer()
+BEGIN
+    SELECT * FROM Customers;
+END//
+DELIMITER ;
+
+-- Actualizar
+DELIMITER //
+CREATE PROCEDURE sp_ActualizarCustomer(
+    IN p_CustomerID CHAR(5),
+    IN p_NewCompanyName NVARCHAR(40),
+    IN p_NewContactName NVARCHAR(30),
+    IN p_NewContactTitle NVARCHAR(30),
+    IN p_NewAddress NVARCHAR(60),
+    IN p_NewCity NVARCHAR(15),
+    IN p_NewRegion NVARCHAR(15),
+    IN p_NewPostalCode NVARCHAR(10),
+    IN p_NewCountry NVARCHAR(15),
+    IN p_NewPhone NVARCHAR(24),
+    IN p_NewFax NVARCHAR(24)
+)
+BEGIN
+    UPDATE Customers
+    SET 
+        CompanyName = p_NewCompanyName,
+        ContactName = p_NewContactName,
+        ContactTitle = p_NewContactTitle,
+        Address = p_NewAddress,
+        City = p_NewCity,
+        Region = p_NewRegion,
+        PostalCode = p_NewPostalCode,
+        Country = p_NewCountry,
+        Phone = p_NewPhone,
+        Fax = p_NewFax
+    WHERE CustomerID = p_CustomerID;
+END//
+DELIMITER ;
+
+-- Eliminar
+DELIMITER //
+CREATE PROCEDURE sp_EliminarCustomer(
+    IN p_CustomerID CHAR(5)
+)
+BEGIN
+    DELETE FROM Customers WHERE CustomerID = p_CustomerID;
+END//
+DELIMITER ;
+
+select * from employees;
+-- TABLAS ORDERS
+
+-- Crear
+DELIMITER //
+CREATE PROCEDURE sp_CrearOrder(
+    IN p_CustomerID CHAR(5),
+    IN p_EmployeeID INT,
+    IN p_OrderDate DATETIME,
+    IN p_RequiredDate DATETIME,
+    IN p_ShippedDate DATETIME,
+    IN p_ShipVia INT,
+    IN p_Freight DECIMAL(10,2),
+    IN p_ShipName NVARCHAR(40),
+    IN p_ShipAddress NVARCHAR(60),
+    IN p_ShipCity NVARCHAR(15),
+    IN p_ShipRegion NVARCHAR(15),
+    IN p_ShipPostalCode NVARCHAR(10),
+    IN p_ShipCountry NVARCHAR(15)
+)
+BEGIN
+    INSERT INTO Orders 
+    (CustomerID, EmployeeID, OrderDate, RequiredDate, ShippedDate, ShipVia, Freight, ShipName, ShipAddress, ShipCity, ShipRegion, ShipPostalCode, ShipCountry)
+    VALUES 
+    (p_CustomerID, p_EmployeeID, p_OrderDate, p_RequiredDate, p_ShippedDate, p_ShipVia, p_Freight, p_ShipName, p_ShipAddress, p_ShipCity, p_ShipRegion, p_ShipPostalCode, p_ShipCountry);
+END//
+DELIMITER ;
+
+-- Leer
+DELIMITER //
+CREATE PROCEDURE sp_LeerOrder()
+BEGIN
+    SELECT * FROM Orders;
+END//
+DELIMITER ;
+
+-- Actualizar
+DELIMITER //
+CREATE PROCEDURE sp_ActualizarOrder(
+    IN p_OrderID INT,
+    IN p_CustomerID CHAR(5),
+    IN p_EmployeeID INT,
+    IN p_OrderDate DATETIME,
+    IN p_RequiredDate DATETIME,
+    IN p_ShippedDate DATETIME,
+    IN p_ShipVia INT,
+    IN p_Freight DECIMAL(10,2),
+    IN p_ShipName NVARCHAR(40),
+    IN p_ShipAddress NVARCHAR(60),
+    IN p_ShipCity NVARCHAR(15),
+    IN p_ShipRegion NVARCHAR(15),
+    IN p_ShipPostalCode NVARCHAR(10),
+    IN p_ShipCountry NVARCHAR(15)
+)
+BEGIN
+    UPDATE Orders
+    SET 
+        CustomerID = p_CustomerID,
+        EmployeeID = p_EmployeeID,
+        OrderDate = p_OrderDate,
+        RequiredDate = p_RequiredDate,
+        ShippedDate = p_ShippedDate,
+        ShipVia = p_ShipVia,
+        Freight = p_Freight,
+        ShipName = p_ShipName,
+        ShipAddress = p_ShipAddress,
+        ShipCity = p_ShipCity,
+        ShipRegion = p_ShipRegion,
+        ShipPostalCode = p_ShipPostalCode,
+        ShipCountry = p_ShipCountry
+    WHERE OrderID = p_OrderID;
+END//
+DELIMITER ;
+
+-- Eliminar
+DELIMITER //
+CREATE PROCEDURE sp_EliminarOrder(
+    IN p_OrderID INT
+)
+BEGIN
+    DELETE FROM Orders WHERE OrderID = p_OrderID;
+END//
+DELIMITER ;
+
+
+-- TABLAS CATAGORIES
+
+-- Crear
+DELIMITER //
+CREATE PROCEDURE sp_CrearCategory(
+    IN p_CategoryName NVARCHAR(15),
+    IN p_Description TEXT,
+    IN p_Picture LONGBLOB
+)
+BEGIN
+    INSERT INTO Categories (CategoryName, Description, Picture)
+    VALUES (p_CategoryName, p_Description, p_Picture);
+END//
+DELIMITER ;
+
+-- Leer
+DELIMITER //
+CREATE PROCEDURE sp_LeerCategory()
+BEGIN
+    SELECT * FROM Categories;
+END//
+DELIMITER ;
+
+-- Actualizar
+DELIMITER //
+CREATE PROCEDURE sp_ActualizarCategory(
+    IN p_CategoryID INT,
+    IN p_CategoryName NVARCHAR(15),
+    IN p_Description TEXT,
+    IN p_Picture LONGBLOB
+)
+BEGIN
+    UPDATE Categories
+    SET 
+        CategoryName = p_CategoryName,
+        Description = p_Description,
+        Picture = p_Picture
+    WHERE CategoryID = p_CategoryID;
+END//
+DELIMITER ;
+
+-- Eliminar
+DELIMITER //
+CREATE PROCEDURE sp_EliminarCategory(
+    IN p_CategoryID INT
+)
+BEGIN
+    DELETE FROM Categories WHERE CategoryID = p_CategoryID;
+END//
+DELIMITER ;
+
+
+-- TABLAS PRODUCTS
+
+-- Crear
+DELIMITER //
+CREATE PROCEDURE sp_CrearProduct(
+    IN p_ProductName NVARCHAR(40),
+    IN p_SupplierID INT,
+    IN p_CategoryID INT,
+    IN p_QuantityPerUnit NVARCHAR(20),
+    IN p_UnitPrice DECIMAL(10,2),
+    IN p_UnitsInStock SMALLINT,
+    IN p_UnitsOnOrder SMALLINT,
+    IN p_ReorderLevel SMALLINT,
+    IN p_Discontinued BIT
+)
+BEGIN
+    INSERT INTO Products 
+    (ProductName, SupplierID, CategoryID, QuantityPerUnit, UnitPrice, UnitsInStock, UnitsOnOrder, ReorderLevel, Discontinued)
+    VALUES 
+    (p_ProductName, p_SupplierID, p_CategoryID, p_QuantityPerUnit, p_UnitPrice, p_UnitsInStock, p_UnitsOnOrder, p_ReorderLevel, p_Discontinued);
+END//
+DELIMITER ;
+
+-- Leer
+DELIMITER //
+CREATE PROCEDURE sp_LeerProduct()
+BEGIN
+    SELECT * FROM Products;
+END//
+DELIMITER ;
+
+
+-- Actualizar
+DELIMITER //
+CREATE PROCEDURE sp_ActualizarProduct(
+    IN ProductID INT,
+    IN ProductName VARCHAR(40),
+    IN SupplierID INT,
+    IN CategoryID INT,
+    IN QuantityPerUnit VARCHAR(20),
+    IN UnitPrice DECIMAL(10,2),
+    IN UnitsInStock INT,
+    IN UnitsOnOrder INT,
+    IN ReorderLevel INT,
+    IN Discontinued BOOLEAN
+)
+BEGIN
+    UPDATE Products
+    SET 
+        ProductName = ProductName,
+        SupplierID = SupplierID,
+        CategoryID = CategoryID,
+        QuantityPerUnit = QuantityPerUnit,
+        UnitPrice = UnitPrice,
+        UnitsInStock = UnitsInStock,
+        UnitsOnOrder = UnitsOnOrder,
+        ReorderLevel = ReorderLevel,
+        Discontinued = Discontinued
+    WHERE ProductID = ProductID;
+END//
+DELIMITER ;
+
+
+-- Eliminar
+DELIMITER //
+CREATE PROCEDURE sp_EliminarProduct(
+    IN ProductID INT
+)
+BEGIN
+    DELETE FROM Products WHERE ProductID = ProductID;
+END//
+DELIMITER ;
+
