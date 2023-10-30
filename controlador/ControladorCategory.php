@@ -2,7 +2,6 @@
 
 include_once('../modelo/conexion.php');
 include_once('../modelo/ModeloCategory.php');
-var_dump($_POST);
 class ControllerCategory {
     public function mostrarCategorias() {
         $modelo = new ModelCategory();

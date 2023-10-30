@@ -2,7 +2,7 @@
 
 include_once('../modelo/conexion.php');
 include_once('../modelo/ModeloEmployee.php');
-var_dump($_POST);
+
 class ControllerEmployee {
     public function mostrarEmpleados() {
         $modelo = new ModelEmployee();
