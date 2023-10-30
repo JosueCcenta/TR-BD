@@ -2,6 +2,7 @@
 
 include_once('../modelo/conexion.php');
 include_once('../modelo/ModeloCategory.php');
+
 class ControllerCategory {
     public function mostrarCategorias() {
         $modelo = new ModelCategory();
