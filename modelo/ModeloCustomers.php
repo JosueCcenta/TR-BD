@@ -35,9 +35,10 @@ class ModelCustomers {
                 }
             }
 
-            $stmt = $conn->prepare("CALL sp_CrearCategory(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt = $conn->prepare("CALL sp_CrearCustomer(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-            $stmt->bind_param("ssssssssss", 
+            $stmt->bind_param("sssssssssss", 
+                $params['CustomerID'],
                 $params['CompanyName'], 
                 $params['ContactName'], 
                 $params['ContactTitle'], 
@@ -47,8 +48,7 @@ class ModelCustomers {
                 $params['PostalCode'], 
                 $params['Country'], 
                 $params['Phone'], 
-                $params['Fax'], 
-
+                $params['Fax']
             );
 
             $stmt->execute();
