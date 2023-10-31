@@ -1,7 +1,7 @@
 <?php
     include("../header.php");
     include_once("./controlador/ControladorProduct.php");
-    
+
     $controller = new ControllerProduct($modelo);
     $results = $controller->mostrarProductos();
 ?>

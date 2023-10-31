@@ -73,8 +73,8 @@
                 <a class="navbar-link">Productos</a>
 
                 <div class="navbar-dropdown">
-                    <a href="index.php?vista=product_new" class="navbar-item">Nuevo</a>
-                    <a href="index.php?vista=product_list" class="navbar-item">Lista</a>
+                    <a href="./Product/product_new.php" class="navbar-item">Nuevo</a>
+                    <a href="./Product/product_list.php" class="navbar-item">Lista</a>
                     <a href="index.php?vista=product_category" class="navbar-item">Por categoría</a>
                     <a href="index.php?vista=product_search" class="navbar-item">Buscar</a>
                 </div>

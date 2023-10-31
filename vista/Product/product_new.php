@@ -7,7 +7,9 @@
     <h2 class="subtitle">Nuevo Producto</h2>
 </div>
 <div class="container pb-6 pt-6">
+
     <div class="form-rest mb-6 mt-6"></div>
+    
     <form action="/controlador/ControladorProduct.php?accion=crearProducto" method="POST" class="FormularioAjax">
         <div class="columns">
             <div class="column">
