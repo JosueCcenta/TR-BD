@@ -36,7 +36,6 @@
                 <div class="navbar-dropdown">
                     <a href="employee_new.php" class="navbar-item">Nuevo</a>
                     <a href="employee_list.php" class="navbar-item">Lista</a>
-                    <a href="index.php?vista=employee_search" class="navbar-item">Buscar</a>
                 </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -45,7 +44,6 @@
                 <div class="navbar-dropdown">
                     <a href="customers_new.php" class="navbar-item">Nuevo</a>
                     <a href="customers_list.php" class="navbar-item">Lista</a>
-                    <a href="index.php?vista=user_search" class="navbar-item">Buscar</a>
                 </div>
             </div>
             <div class="navbar-item has-dropdown is-hoverable">
@@ -54,7 +52,6 @@
                 <div class="navbar-dropdown">
                     <a href="index.php?vista=user_new" class="navbar-item">Nuevo</a>
                     <a href="index.php?vista=user_list" class="navbar-item">Lista</a>
-                    <a href="index.php?vista=user_search" class="navbar-item">Buscar</a>
                 </div>
             </div>
 
@@ -64,7 +61,6 @@
                 <div class="navbar-dropdown">
                     <a href="category_new.php" class="navbar-item">Nueva</a>
                     <a href="category_list.php" class="navbar-item">Lista</a>
-                    <a href="index.php?vista=category_search" class="navbar-item">Buscar</a>
                 </div>
             </div>
 
@@ -73,27 +69,11 @@
                 <a class="navbar-link">Productos</a>
 
                 <div class="navbar-dropdown">
-                    <a href="index.php?vista=product_new" class="navbar-item">Nuevo</a>
-                    <a href="index.php?vista=product_list" class="navbar-item">Lista</a>
-                    <a href="index.php?vista=product_category" class="navbar-item">Por categoría</a>
-                    <a href="index.php?vista=product_search" class="navbar-item">Buscar</a>
+                    <a href="products_new.php" class="navbar-item">Nuevo</a>
+                    <a href="products_list.php" class="navbar-item">Lista</a>
                 </div>
             </div>
 
         </div>
-        <!--
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <div class="buttons">
-                    <a href="index.php?vista=user_update&user_id_up=<?php echo $_SESSION['id']; ?>" class="button is-primary is-rounded">
-                        Mi cuenta
-                    </a>
-
-                    <a href="index.php?vista=logout" class="button is-link is-rounded">
-                        Salir
-                    </a>
-                </div>
-            </div>
-        </div>-->
     </div>
     </nav>

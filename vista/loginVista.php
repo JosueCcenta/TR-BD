@@ -4,7 +4,6 @@ if($_GET){
     print("<div class='alert alert-danger' role='alert'>Error de Inicio de Sesion, Comprobar Credenciales</div>");
     }
 }
-
 ?>
 
 <!DOCTYPE html>
