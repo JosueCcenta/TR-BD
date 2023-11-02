@@ -3,87 +3,101 @@ include("header.php");
 ?>
 <div class="all_container">
 	<div class="container is-fluid mb-6">
-		<h1 class="title">Cliente</h1>
-		<h2 class="subtitle">Nuevo Cliente</h2>
+		<h1 class="title">Orden</h1>
+		<h2 class="subtitle">Nueva Orden</h2>
 	</div>
 	<div class="container pb-6 pt-6">
 
-		<form action="../controlador/ControladorCustomers.php?accion=crearCustomers" method="POST" class="FormularioAjax">
-        <div class="columns">
-				<div class="column">
-					<div class="control">
-                        <label>Id Cliente</label>
-					    <input class="input" type="text" name="CustomerID">
-                    </div>
-				</div>
-			</div>
+		<form action="../controlador/ControladorOrders.php?accion=crearOrder" method="POST" class="FormularioAjax">
 			<div class="columns">
 				<div class="column">
 					<div class="control">
-						<label>Nombre de Compañia</label>
-						<input class="input" type="text" name="CompanyName">
+						<label>Cliente ID</label>
+						<input class="input" type="text" name="CustomerID">
 					</div>
 				</div>
 				<div class="column">
 					<div class="control">
-						<label>Nombre de contacto</label>
-						<input class="input" type="text" name="ContactName">
+						<label>Empleado ID</label>
+						<input class="input" type="text" name="EmployeeID">
 					</div>
 				</div>
 			</div>
 			<div class="columns">
 				<div class="column">
 					<div class="control">
-						<label>Titulo de Contacto</label>
-						<input class="input" type="text" name="ContactTitle">
+						<label>Fecha de orden</label>
+						<input class="input" type="date" name="OrderDate">
 					</div>
 				</div>
 				<div class="column">
 					<div class="control">
-						<label>Direccion</label>
-						<input class="input" type="text" name="Address">
+						<label>Fecha Requerida</label>
+						<input class="input" type="date" name="RequiredDate">
 					</div>
 				</div>
 			</div>
             <div class="columns">
 				<div class="column">
 					<div class="control">
-						<label>Ciudad</label>
-						<input class="input" type="text" name="City">
+						<label>Fecha de envio</label>
+						<input class="input" type="date" name="ShippedDate">
 					</div>
 				</div>
 				<div class="column">
 					<div class="control">
-						<label>Region</label>
-						<input class="input" type="text" name="Region">
+						<label>Via de Envio</label>
+						<input class="input" type="text" name="ShipVia">
 					</div>
 				</div>
 			</div>
 			<div class="columns">
 				<div class="column">
 					<div class="control">
-						<label>Codigo Postal</label>
-						<input class="input" type="text" name="PostalCode">
+						<label>Transporte</label>
+						<input class="input" type="text" name="Freight">
 					</div>
 				</div>
 				<div class="column">
 					<div class="control">
-						<label>Pais</label>
-						<input class="input" type="text" name="Country">
+						<label>Nombre del envio</label>
+						<input class="input" type="text" name="ShipName">
 					</div>
 				</div>
 			</div>
             <div class="columns">
 				<div class="column">
 					<div class="control">
-						<label>Telefono</label>
-						<input class="input" type="text" name="Phone">
+						<label>Direccion del envio</label>
+						<input class="input" type="text" name="ShipAddress">
 					</div>
 				</div>
 				<div class="column">
 					<div class="control">
-						<label>FAX</label>
-						<input class="input" type="text" name="Fax">
+						<label>Ciudad del envio</label>
+						<input class="input" type="text" name="ShipCity">
+					</div>
+				</div>
+			</div>
+            <div class="columns">
+				<div class="column">
+					<div class="control">
+						<label>Region del envio</label>
+						<input class="input" type="text" name="ShipRegion">
+					</div>
+				</div>
+				<div class="column">
+					<div class="control">
+						<label>Codigo Postal del envio</label>
+						<input class="input" type="text" name="ShipPostalCode">
+					</div>
+				</div>
+			</div>
+            <div class="columns">
+				<div class="column">
+					<div class="control">
+						<label>País del envio</label>
+						<input class="input" type="text" name="ShipCountry">
 					</div>
 				</div>
 			</div>

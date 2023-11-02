@@ -157,8 +157,8 @@ include("header.php");
 	}
 
 	.title {
-		font-family: 'Oswald';
-		color: #00f;
+		font-family: 'Consolas';
+		color: White;
 		font-size: 40px;
 	}
 

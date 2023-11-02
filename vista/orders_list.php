@@ -1,35 +1,31 @@
 <?php
 include("header.php");
-include_once("../controlador/ControladorEmployee.php");
+include_once("../controlador/ControladorOrders.php");
 
-$controller = new ControllerEmployee();
-$results = $controller->mostrarEmpleados(); // Asignar los resultados a $results
+$controller = new ControllerOrders();
+$results = $controller->mostrarOrders(); 
 
 ?>
 <div class="all_container">
     <div class="table-container">
-        <h1>EMPLEADOS</h1>
+        <h1>Productos</h1>
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
                 <tr class="has-text-centered">
-                    <th>#</th>
-                    <th>Last Name</th>
-                    <th>First Name</th>
-                    <th>Title</th>
-                    <th>Title of Courtesy</th>
-                    <th>Birth Date</th>
-                    <th>Hire Date</th>
-                    <th>Address</th>
-                    <th>City</th>
-                    <th>Region</th>
-                    <th>Postal Code</th>
-                    <th>Country</th>
-                    <th>Home Phone</th>
-                    <th>Extension</th>
-                    <th>Photo</th>
-                    <th>Notes</th>
-                    <th>ReportsTo</th>
-                    <th>Photo Path</th>
+                    <th>Orden ID</th>
+                    <th>Cliente ID</th>
+                    <th>Empleado ID</th>
+                    <th>Fecha de orden</th>
+                    <th>Fecha Requerida</th>
+                    <th>Fecha de envio</th>
+                    <th>Via de Envio</th>
+                    <th>Transporte</th>
+                    <th>Nombre del envio</th>
+                    <th>Direccion del envio</th>
+                    <th>Ciudad del envio</th>
+                    <th>Region del envio</th>
+                    <th>Codigo Postal del envio</th>
+                    <th>Pais del envio</th>
                     <th colspan="2">Opciones</th>
                 </tr>
             </thead>
@@ -37,69 +33,57 @@ $results = $controller->mostrarEmpleados(); // Asignar los resultados a $results
                 <?php foreach ($results as $row): ?>
                     <tr class="has-text-centered">
                         <td>
+                            <?php echo $row['OrderID']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['CustomerID']; ?>
+                        </td>
+                        <td>
                             <?php echo $row['EmployeeID']; ?>
                         </td>
                         <td>
-                            <?php echo $row['LastName']; ?>
+                            <?php echo $row['OrderDate']; ?>
                         </td>
                         <td>
-                            <?php echo $row['FirstName']; ?>
+                            <?php echo $row['RequiredDate']; ?>
                         </td>
                         <td>
-                            <?php echo $row['Title']; ?>
+                            <?php echo $row['ShippedDate']; ?>
                         </td>
                         <td>
-                            <?php echo $row['TitleOfCourtesy']; ?>
+                            <?php echo $row['ShipVia']; ?>
                         </td>
                         <td>
-                            <?php echo $row['BirthDate']; ?>
+                            <?php echo $row['Freight']; ?>
                         </td>
                         <td>
-                            <?php echo $row['HireDate']; ?>
+                            <?php echo $row['ShipName']; ?>
                         </td>
                         <td>
-                            <?php echo $row['Address']; ?>
+                            <?php echo $row['ShipAddress']; ?>
                         </td>
                         <td>
-                            <?php echo $row['City']; ?>
+                            <?php echo $row['ShipCity']; ?>
                         </td>
                         <td>
-                            <?php echo $row['Region']; ?>
+                            <?php echo $row['ShipRegion']; ?>
                         </td>
                         <td>
-                            <?php echo $row['PostalCode']; ?>
+                            <?php echo $row['ShipPostalCode']; ?>
                         </td>
                         <td>
-                            <?php echo $row['Country']; ?>
+                            <?php echo $row['ShipCountry']; ?>
                         </td>
+
                         <td>
-                            <?php echo $row['HomePhone']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['Extension']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['Photo']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['Notes']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['ReportsTo']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['PhotoPath']; ?>
-                        </td>
-                        <td>
-                            <a href="employee_update.php?employeeID=<?php echo $row['EmployeeID']; ?>"
+                            <a href="orders_update.php?OrderID=<?php echo $row['OrderID']; ?>"
                                 class="button is-success is-rounded is-small">Actualizar</a>
                         </td>
                         <td>
-                            <form action="../controlador/ControladorEmployee.php?accion=eliminarEmpleado" method="post">
-                                <input type="hidden" name="EmployeeID" value="<?php echo $row['EmployeeID']; ?>">
+                            <form action="../controlador/ControladorOrders.php?accion=eliminarOrder" method="post">
+                                <input type="hidden" name="OrderID" value="<?php echo $row['OrderID']; ?>">
                                 <button type="submit" class="button is-danger is-rounded is-small">Eliminar</button>
                             </form>
-
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -112,7 +96,6 @@ $results = $controller->mostrarEmpleados(); // Asignar los resultados a $results
         background: #222 !important;
         color: #222;
     }
-
     .all_container{
         background: #222 !important;
         color: #222;

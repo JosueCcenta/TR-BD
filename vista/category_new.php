@@ -57,8 +57,8 @@ include("header.php");
 	}
 
 	.title {
-		font-family: 'Oswald';
-		color: #00f;
+		font-family: 'Consolas';
+		color: white;
 		font-size: 40px;
 	}
 

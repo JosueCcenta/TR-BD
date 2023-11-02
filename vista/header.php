@@ -50,8 +50,8 @@
                 <a class="navbar-link">Ordenes</a>
 
                 <div class="navbar-dropdown">
-                    <a href="index.php?vista=user_new" class="navbar-item">Nuevo</a>
-                    <a href="index.php?vista=user_list" class="navbar-item">Lista</a>
+                    <a href="orders_new.php" class="navbar-item">Nuevo</a>
+                    <a href="orders_list.php" class="navbar-item">Lista</a>
                 </div>
             </div>
 
@@ -72,6 +72,10 @@
                     <a href="products_new.php" class="navbar-item">Nuevo</a>
                     <a href="products_list.php" class="navbar-item">Lista</a>
                 </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link" href="loginVista.php">Cerrar Sesion</a>
             </div>
 
         </div>

@@ -88,8 +88,8 @@ $results = $controller->mostrarCategorias(); // Asignar los resultados a $result
     @import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Oswald&family=Pixelify+Sans&display=swap');
 
     h1 {
-        font-family: 'Oswald';
-        color: #00f;
+        font-family: 'Consolas';
+        color: white;
         font-size: 40px;
     }
 

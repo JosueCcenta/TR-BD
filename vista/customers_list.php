@@ -8,7 +8,7 @@ $results = $controller->mostrarCustomers();
 ?>
 <div class="all_container">
     <div class="table-container">
-        <h1>CATEGORÍAS</h1>
+        <h1>Clientes</h1>
         <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
                 <tr class="has-text-centered">
